@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LUNA'S LAB | Experimental Pâtisserie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --accent: #555555;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        nav {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eeeeee;
+        }
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.7rem;
+            margin-left: 2rem;
+        }
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            background: #fafafa;
+        }
+        .hero-content h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            margin: 0;
+        }
+        .hero-content p {
+            font-size: 0.9rem;
+            max-width: 400px;
+            margin-top: 2rem;
+            color: var(--accent);
+        }
+        .cta {
+            margin-top: 3rem;
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--text);
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.6rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">LUNA'S LAB</div>
+        <div>
+            <a href="menu.html">The Lab Menu</a>
+            <a href="https://instagram.com/thelunaslab" target="_blank">Instagram</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>EDIBLE<br>DESIGN.</h1>
+            <p>A home-based studio dedicated to the intersection of geometry, texture, and flavor.</p>
+            <a href="menu.html" class="cta">Enter the Laboratory</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 THE LUNA'S LAB | BY APPOINTMENT ONLY
+    </footer>
+
+</body>
+</html>
