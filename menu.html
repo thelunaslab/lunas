@@ -3,66 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu | THE LUNA'S LAB</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <title>The Collection | Luna's</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Inter:wght@100;400&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #ffffff; --text: #000; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); text-transform: uppercase; }
-        nav { padding: 2rem; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; }
-        nav a { color: var(--text); text-decoration: none; font-size: 0.7rem; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
         
-        .container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
-        h2 { font-family: 'Space Grotesk'; font-size: 0.8rem; border-bottom: 2px solid #000; display: inline-block; padding-bottom: 5px; margin-bottom: 3rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 4rem; }
-        .item { margin-bottom: 2rem; }
-        .item-code { font-size: 0.6rem; color: #999; display: block; margin-bottom: 0.5rem; }
-        .item-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; display: block; }
-        .item-desc { text-transform: none; font-size: 0.85rem; color: #555; line-height: 1.5; letter-spacing: 0; }
-        .item-price { margin-top: 1rem; font-size: 0.8rem; font-weight: 600; }
+        .menu-header { padding: 5rem 5% 2rem 5%; display: flex; justify-content: space-between; align-items: baseline; }
+        .menu-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; margin: 0; }
+        .menu-header a { text-decoration: none; color: #999; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
 
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        .container { padding: 0 5% 10rem 5%; }
+        .category { margin-top: 5rem; border-top: 1px solid #000; padding-top: 1rem; }
+        .category-name { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: #888; }
+
+        .item { 
+            display: grid; grid-template-columns: 1fr 2fr 1fr; 
+            padding: 3rem 0; border-bottom: 1px solid #eee; 
+            align-items: center;
+        }
+        .item-id { font-size: 0.6rem; font-weight: 400; color: #bbb; }
+        .item-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; font-style: italic; margin: 0; }
+        .item-content p { font-size: 0.85rem; font-weight: 200; color: #555; margin-top: 0.5rem; text-transform: lowercase; }
+        .price { text-align: right; font-size: 0.9rem; font-weight: 400; }
+
+        @media (max-width: 768px) {
+            .item { grid-template-columns: 1fr; gap: 1rem; }
+            .price { text-align: left; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html">← Back</a>
-        <span style="font-size: 0.7rem; font-weight: bold;">Collection 001 / 2026</span>
-    </nav>
+    <div class="menu-header">
+        <h2>The Items</h2>
+        <a href="index.html">← Return</a>
+    </div>
 
     <div class="container">
-        <h2>Selected Experiments</h2>
-        
-        <div class="grid">
+        <div class="category">
+            <span class="category-name">Selected Pâtisserie</span>
+            
             <div class="item">
-                <span class="item-code">MOD-01</span>
-                <span class="item-title">The Monolith Cake</span>
-                <p class="item-desc">A sharp-edged cube featuring layers of black sesame sponge, charcoal mascarpone, and a liquid yuzu core.</p>
-                <div class="item-price">45.00</div>
+                <span class="item-id">#001</span>
+                <div class="item-content">
+                    <h3>The Obsidian Cube</h3>
+                    <p>Charcoal-infused chocolate shell, salted caramel heart, black sesame soil.</p>
+                </div>
+                <span class="price">RM 28</span>
             </div>
 
             <div class="item">
-                <span class="item-code">MOD-02</span>
-                <span class="item-title">Concrete Macarons</span>
-                <p class="item-desc">Hand-painted marble shells. Earl Grey ganache with a hint of smoked sea salt.</p>
-                <div class="item-price">28.00 / Box of 6</div>
-            </div>
-
-            <div class="item">
-                <span class="item-code">MOD-03</span>
-                <span class="item-title">Orbital Tart</span>
-                <p class="item-desc">Deconstructed lemon curd, shortbread spheres, and nitrogen-chilled meringue shards.</p>
-                <div class="item-price">12.00</div>
-            </div>
-
-            <div class="item">
-                <span class="item-code">BEV-01</span>
-                <span class="item-title">Lab-Pressed Cold Brew</span>
-                <p class="item-desc">Single-origin beans, 24-hour slow drip, served in a minimalist glass vial.</p>
-                <div class="item-price">7.00</div>
+                <span class="item-id">#002</span>
+                <div class="item-content">
+                    <h3>Marble Choux</h3>
+                    <p>Earl grey infused cream, hand-painted white chocolate crackle, bergamot gel.</p>
+                </div>
+                <span class="price">RM 22</span>
             </div>
         </div>
+
+        <div class="category">
+            <span class="category-name">Caffeine Extraction</span>
+            
+            <div class="item">
+                <span class="item-id">#009</span>
+                <div class="item-content">
+                    <h3>Clear Cold Brew</h3>
+                    <p>24-hour nitrogen drip, served in a minimalist flask over crystal ice.</p>
+                </div>
+                <span class="price">RM 18</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding-bottom: 5rem;">
+        <p style="font-size: 0.7rem; letter-spacing: 2px; color: #999;">DIRECT DIALOGUE VIA INSTAGRAM TO PRE-ORDER.</p>
     </div>
 
 </body>
