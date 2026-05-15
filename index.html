@@ -3,213 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna’s | Beyond Flavour</title>
+    <title>Luna’s Lab | Beyond Flavour</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --mango: #FFB800;
-            --espresso: #3E2723;
-            --cream: #FFF8E1;
+            --mango: #FFB800;    /* Mango Gold */
+            --espresso: #3E2723; /* Espresso Brown */
+            --cream: #FFF8E1;    /* Cream Silk */
         }
-        body { font-family: 'Inter', sans-serif; background-color: var(--cream); color: var(--espresso); }
+        body { font-family: 'Inter', sans-serif; background-color: var(--cream); color: var(--espresso); scroll-behavior: smooth; }
         .serif { font-family: 'Playfair Display', serif; }
-        .bg-mango { background-color: var(--mango); }
-        .text-mango { color: var(--mango); }
-        .bg-espresso { background-color: var(--espresso); }
-        .text-espresso { color: var(--espresso); }
         
-        /* Custom Button */
+        /* Sticky Navigation Transitions */
+        .nav-item { transition: color 0.5s ease-in-out; }
+        
+        /* Buttons */
         .btn-ritual {
             background-color: var(--mango);
             color: var(--espresso);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            transition: all 0.3s ease;
+            letter-spacing: 0.1em;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-size: 11px;
+            transition: transform 0.3s ease;
         }
-        .btn-ritual:hover { transform: translateY(-2px); filter: brightness(95%); }
+        .btn-ritual:hover { transform: scale(1.05); }
 
-        /* Whitespace Utilities */
-        .extreme-whitespace { padding-top: 120px; padding-bottom: 120px; }
+        /* Asymmetric Grid Spacing */
+        .extreme-whitespace { padding: 160px 0; }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <nav id="main-nav" class="fixed w-full z-50 flex justify-between items-center px-6 md:px-16 py-8 transition-colors duration-500 ease-in-out">
+    <nav id="main-nav" class="fixed w-full z-50 flex justify-between items-center px-10 md:px-20 py-10 transition-colors duration-500">
         <div class="flex flex-col">
-            <span class="nav-text serif text-2xl font-bold leading-none transition-colors duration-500">Luna’s</span>
-            <span class="nav-text text-[8px] tracking-[0.4em] uppercase opacity-60 transition-colors duration-500">Beyond Flavour</span>
+            <span class="nav-item serif text-2xl font-bold leading-none">Luna’s Lab</span>
+            <span class="nav-item text-[8px] tracking-[0.4em] uppercase opacity-60">Beyond Flavour</span>
         </div>
-        <div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-widest font-bold opacity-80">
-            <a href="#shop" class="nav-link hover:text-mango transition-colors duration-500">Shop</a>
-            <a href="#combos" class="nav-link hover:text-mango transition-colors duration-500">Combos</a>
-            <a href="#story" class="nav-link hover:text-mango transition-colors duration-500">Our Story</a>
-            <a href="#contact" class="nav-link hover:text-mango transition-colors duration-500">Contact</a>
+        <div class="hidden md:flex space-x-12 text-[10px] uppercase tracking-[0.2em] font-bold">
+            <a href="#shop" class="nav-item hover:opacity-50">Shop</a>
+            <a href="#combos" class="nav-item hover:opacity-50">Combos</a>
+            <a href="#story" class="nav-item hover:opacity-50">Our Story</a>
+            <a href="#contact" class="nav-item hover:opacity-50">Contact</a>
         </div>
-        <div class="nav-text transition-colors duration-500">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="nav-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </div>
     </nav>
 
-    <section data-theme="dark" class="relative h-screen flex items-center bg-espresso overflow-hidden">
+    <section id="hero" data-theme="dark" class="relative h-screen flex items-center bg-black overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://placehold.co/1920x1080/3E2723/FFF8E1?text=Cinematic+Hero+Video+or+Image" class="w-full h-full object-cover opacity-50" alt="Hero Background">
+            <img src="https://images.unsplash.com/photo-1591154706848-4f48913a1ee1?q=80&w=2000" class="w-full h-full object-cover opacity-60" alt="Hero">
         </div>
-        
-        <div class="relative z-10 container mx-auto px-6 md:px-16">
-            <div class="max-w-4xl">
-                <h1 class="text-white serif text-5xl md:text-8xl leading-[1.1] mb-10">
-                    A Taste of the <br>Philippines. <br>Hand-Crafted <br>in Pune.
-                </h1>
-                <button class="btn-ritual">Order the Ritual</button>
-            </div>
+        <div class="relative z-10 px-10 md:px-20">
+            <h1 class="text-white serif text-6xl md:text-8xl leading-[1.05] mb-12">
+                A Taste of the <br>Philippines. <br>Hand-Crafted <br>in Pune.
+            </h1>
+            <button class="btn-ritual">Order the Ritual</button>
         </div>
-
-        <div class="absolute bottom-10 left-6 md:left-16 bg-white/90 backdrop-blur px-6 py-3 rounded-full flex items-center space-x-4 shadow-xl">
-            <span class="text-[10px] uppercase tracking-widest font-bold opacity-80">Summer Chill Pair</span>
+        <div class="absolute bottom-12 left-10 md:left-20 bg-white/10 backdrop-blur-md px-6 py-4 rounded-sm flex items-center gap-4 text-white">
+            <span class="text-[9px] uppercase tracking-widest font-bold">Summer Chill Pair</span>
             <div class="flex -space-x-2">
-                <div class="w-6 h-6 rounded-full bg-mango border-2 border-white"></div>
-                <div class="w-6 h-6 rounded-full bg-espresso border-2 border-white"></div>
+                <div class="w-6 h-6 rounded-full border-2 border-white bg-[#FFB800]"></div>
+                <div class="w-6 h-6 rounded-full border-2 border-white bg-[#3E2723]"></div>
             </div>
         </div>
     </section>
 
-    <section data-theme="light" id="shop" class="extreme-whitespace container mx-auto px-6 md:px-16">
-        <h2 class="serif text-5xl md:text-7xl mb-24 uppercase tracking-tighter">The Primary 5</h2>
+    <section id="shop" data-theme="light" class="extreme-whitespace container mx-auto px-10 md:px-20">
+        <h2 class="serif text-6xl md:text-9xl mb-32 tracking-tighter uppercase">The Primary 5</h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-20 md:gap-x-12 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-40">
             
-            <div class="md:col-span-4 md:col-start-8">
-                <div class="aspect-[4/5] bg-white mb-6 overflow-hidden">
-                    <img src="https://placehold.co/800x1000/FFF/3E2723?text=Product+01:+Mango+Float" class="w-full h-full object-cover" alt="Mango Float">
+            <div class="md:col-span-5 md:col-start-7">
+                <div class="bg-white p-4 shadow-sm mb-8 transition-transform hover:scale-[1.02] duration-500">
+                    <img src="https://images.unsplash.com/photo-1528451634235-9538c92a5082?q=80&w=1000" class="w-full aspect-[4/5] object-cover" alt="Mango Float Grande">
                 </div>
-                <div class="space-y-2">
-                    <h3 class="serif text-xl">01. Signature Mango Float (Grande) [400ml]</h3>
-                    <p class="text-[10px] uppercase tracking-widest opacity-60 max-w-xs">Mangas Mangoes, graham crackers, and our signature cream layers.</p>
-                    <button class="btn-ritual !py-2 !text-[9px]">Add to Ritual</button>
-                </div>
-            </div>
-
-            <div class="md:col-span-4 md:mt-[-100px]">
-                <div class="aspect-square bg-white mb-6 overflow-hidden">
-                    <img src="https://placehold.co/800x800/FFF/3E2723?text=Product+03:+Coffee+Crumble" class="w-full h-full object-cover" alt="Coffee Crumble">
-                </div>
-                <div class="space-y-2">
-                    <h3 class="serif text-xl">03. Coffee Crumble (Grande) [400ml]</h3>
-                    <p class="text-[10px] uppercase tracking-widest opacity-60">Coffee crumble paired with chocolate chips and cocoa.</p>
-                    <button class="btn-ritual !py-2 !text-[9px]">Add to Ritual</button>
+                <div class="max-w-xs">
+                    <h3 class="serif text-2xl mb-4">01. Signature Mango Float (Grande) [400ml]</h3>
+                    <p class="text-[10px] uppercase tracking-widest leading-loose opacity-60 mb-6">Ripe, Creamy, Pure Bliss. Layers of mango, cream, and summer in every spoon.</p>
+                    <button class="btn-ritual">Add to Ritual — ₹450</button>
                 </div>
             </div>
 
-            <div class="md:col-span-3 md:col-start-6">
-                <div class="aspect-square rounded-full bg-white overflow-hidden border-8 border-white shadow-lg">
-                    <img src="https://placehold.co/600x600/FFF/3E2723?text=Decorative+Asset" class="w-full h-full object-cover" alt="Vibe">
+            <div class="md:col-span-5 md:-mt-60">
+                <div class="bg-white p-4 shadow-sm mb-8 transition-transform hover:scale-[1.02] duration-500">
+                    <img src="https://images.unsplash.com/photo-1610853167151-5aa6105307bc?q=80&w=1000" class="w-full aspect-square object-cover" alt="Coffee Crumble">
+                </div>
+                <div class="max-w-xs">
+                    <h3 class="serif text-2xl mb-4">03. Coffee Crumble (Grande) [400ml]</h3>
+                    <p class="text-[10px] uppercase tracking-widest leading-loose opacity-60 mb-6">Bittersweet. Decadent. A taste of the Philippines you'll fall in love with.</p>
+                    <button class="btn-ritual">Add to Ritual — ₹350</button>
                 </div>
             </div>
 
-            <div class="md:col-span-4 md:col-start-5 md:mt-20">
-                <div class="aspect-[3/4] bg-white mb-6 overflow-hidden">
-                    <img src="https://placehold.co/800x1000/FFF/3E2723?text=Product+05:+Coffee+Jelly" class="w-full h-full object-cover" alt="Coffee Jelly">
+            <div class="md:col-span-6 md:col-start-4 md:mt-20">
+                <div class="bg-white p-4 shadow-sm mb-12 transition-transform hover:scale-[1.02] duration-500">
+                    <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1000" class="w-full aspect-[3/4] object-cover" alt="Coffee Jelly">
                 </div>
-                <div class="space-y-2">
-                    <h3 class="serif text-xl">05. Signature Coffee Jelly [300ml]</h3>
-                    <p class="text-[10px] uppercase tracking-widest opacity-60">Signature jelly with refreshing coffee and condensed milk swirl.</p>
-                    <button class="btn-ritual !py-2 !text-[9px]">Add to Ritual</button>
+                <div class="text-center">
+                    <h3 class="serif text-3xl mb-4">05. Signature Coffee Jelly [300ml]</h3>
+                    <p class="text-[11px] uppercase tracking-[0.3em] font-bold mb-8">Shake. Sip. Enjoy.</p>
+                    <button class="btn-ritual">Add to Ritual — ₹229</button>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <section data-theme="light" id="combos" class="bg-white/40 py-32 overflow-hidden">
-        <div class="container mx-auto px-6 md:px-16">
-            <h2 class="serif text-4xl md:text-5xl text-center mb-20 uppercase">Our Curated Pairs</h2>
-            
-            <div class="flex space-x-6 md:space-x-8 overflow-x-auto pb-10 scrollbar-hide">
+    <section id="combos" data-theme="light" class="py-40 bg-[#F7F2E8]">
+        <div class="container mx-auto px-10">
+            <h2 class="serif text-5xl md:text-7xl text-center mb-32 uppercase tracking-tight">Our Curated Pairs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 
-                <div class="min-w-[280px] md:flex-1 bg-white p-8 rounded-3xl shadow-sm text-center">
-                    <img src="https://placehold.co/400x400/FFF/FFB800?text=Combo+I" class="w-32 h-32 mx-auto mb-6 object-contain" alt="Duo">
-                    <h4 class="serif text-lg mb-1">Combo I: The Luna’s Duo</h4>
-                    <p class="text-[9px] uppercase opacity-50 mb-6">Perfect for your first time</p>
-                    <p class="serif text-xl font-bold mb-6">Special $25.90</p>
-                    <button class="w-full border border-espresso py-3 rounded-full text-[9px] uppercase font-bold tracking-widest">Add to Bag</button>
+                <div class="bg-white p-12 text-center flex flex-col items-center">
+                    <h4 class="serif text-2xl mb-2">The Luna’s Duo</h4>
+                    <p class="text-[10px] uppercase tracking-widest opacity-50 mb-8">Perfect for the first time</p>
+                    <p class="serif text-4xl mb-12">₹549</p>
+                    <button class="w-full py-5 border border-black text-[10px] font-bold uppercase tracking-widest hover:bg-[#3E2723] hover:text-white transition">Add to Bag</button>
                 </div>
 
-                <div class="min-w-[280px] md:flex-1 bg-white p-8 rounded-3xl shadow-md text-center border-2 border-mango">
-                    <img src="https://placehold.co/400x400/FFF/FFB800?text=Combo+II" class="w-32 h-32 mx-auto mb-6 object-contain" alt="Signature">
-                    <h4 class="serif text-lg mb-1">Combo II: The Signature Pair</h4>
-                    <p class="text-[9px] uppercase opacity-50 mb-6">Perfect for your first time</p>
-                    <p class="serif text-xl font-bold text-mango mb-6">Special $38.00</p>
-                    <button class="w-full bg-mango text-espresso py-3 rounded-full text-[9px] uppercase font-bold tracking-widest">Add to Bag</button>
+                <div class="bg-white p-12 text-center flex flex-col items-center border-4 border-[#FFB800] relative scale-105 shadow-2xl">
+                    <div class="absolute -top-4 bg-[#FFB800] text-white px-6 py-1 text-[9px] font-bold uppercase tracking-widest">Best Seller</div>
+                    <h4 class="serif text-2xl mb-2">Signature Pair</h4>
+                    <p class="text-[10px] uppercase tracking-widest opacity-50 mb-8">Our signature bestsellers</p>
+                    <p class="serif text-4xl text-[#FFB800] mb-12">₹799</p>
+                    <button class="w-full py-5 bg-[#FFB800] text-[#3E2723] text-[10px] font-bold uppercase tracking-widest">Add to Bag</button>
                 </div>
 
-                <div class="min-w-[280px] md:flex-1 bg-white p-8 rounded-3xl shadow-sm text-center">
-                    <img src="https://placehold.co/400x400/FFF/FFB800?text=Combo+V" class="w-32 h-32 mx-auto mb-6 object-contain" alt="Taste of Luna">
-                    <h4 class="serif text-lg mb-1">Combo V: Taste of Luna’s</h4>
-                    <p class="text-[9px] uppercase opacity-50 mb-6">Flat-lay of all three items</p>
-                    <p class="serif text-xl font-bold mb-6">Special $25.00</p>
-                    <button class="w-full border border-espresso py-3 rounded-full text-[9px] uppercase font-bold tracking-widest">Add to Bag</button>
+                <div class="bg-white p-12 text-center flex flex-col items-center">
+                    <h4 class="serif text-2xl mb-2">Taste of Luna’s</h4>
+                    <p class="text-[10px] uppercase tracking-widest opacity-50 mb-8">Everything at once</p>
+                    <p class="serif text-4xl mb-12">₹729</p>
+                    <button class="w-full py-5 border border-black text-[10px] font-bold uppercase tracking-widest hover:bg-[#3E2723] hover:text-white transition">Add to Bag</button>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50">
-        <div class="bg-white/95 backdrop-blur-md p-5 rounded-[2.5rem] shadow-2xl border border-black/5">
-            <div class="flex items-center space-x-4 mb-4 pb-4 border-b border-black/5">
-                <div class="w-12 h-12 bg-mango rounded-xl overflow-hidden">
-                    <img src="https://placehold.co/100x100/FFB800/FFF?text=Mini" alt="Mini">
-                </div>
-                <div>
-                    <h5 class="text-[10px] font-bold uppercase">Mini Mango Float (250ml)</h5>
-                    <p class="text-[9px] opacity-60">Added to ritual</p>
-                </div>
+    <div class="md:hidden fixed bottom-6 left-6 right-6 z-[60] bg-white p-6 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border border-black/5">
+        <div class="flex items-center gap-6 mb-6">
+            <div class="w-16 h-16 bg-[#FFB800] rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1528451634235-9538c92a5082?q=80&w=200" class="w-full h-full object-cover">
             </div>
-            <div class="space-y-2">
-                <button class="w-full bg-[#635BFF] text-white py-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-lg">Checkout with Shop Pay</button>
-                <button class="w-full bg-[#25D366] text-white py-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest shadow-lg flex items-center justify-center space-x-2">
-                    <span>WhatsApp Order</span>
-                </button>
+            <div>
+                <p class="text-[10px] font-bold uppercase">Mini Mango Float (250ml)</p>
+                <p class="text-[9px] text-[#25D366] font-bold">Added to Ritual</p>
             </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <button class="bg-[#635BFF] text-white py-4 rounded-xl text-[9px] font-bold uppercase tracking-widest">Shop Pay</button>
+            <button class="bg-[#25D366] text-white py-4 rounded-xl text-[9px] font-bold uppercase tracking-widest">WhatsApp</button>
         </div>
     </div>
 
     <script>
-        const nav = document.querySelector('#main-nav');
-        const navElements = document.querySelectorAll('.nav-text, .nav-link');
+        const navItems = document.querySelectorAll('.nav-item');
         const sections = document.querySelectorAll('section[data-theme]');
-    
+
         const observerOptions = {
-            root: null,
-            threshold: 0.1, // Trigger when 10% of the section is visible
-            rootMargin: "-80px 0px 0px 0px" // Adjust for the height of your nav
+            threshold: 0.1,
+            rootMargin: "-80px 0px 0px 0px"
         };
-    
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const theme = entry.target.getAttribute('data-theme');
-                    
-                    if (theme === 'dark') {
-                        // Switch to Light text for Dark backgrounds
-                        navElements.forEach(el => {
-                            el.style.color = '#FFF8E1'; // Cream Silk
-                        });
-                    } else {
-                        // Switch to Dark text for Light backgrounds
-                        navElements.forEach(el => {
-                            el.style.color = '#3E2723'; // Espresso Brown
-                        });
-                    }
+                    navItems.forEach(item => {
+                        // Exact transition from Espresso (#3E2723) to Cream (#FFF8E1)
+                        item.style.color = theme === 'dark' ? '#FFF8E1' : '#3E2723';
+                    });
                 }
             });
         }, observerOptions);
-    
+
         sections.forEach(section => observer.observe(section));
     </script>
 </body>
