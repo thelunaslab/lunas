@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna's</title>
+	<link rel="icon" type="image/png" href="./lunaslogo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Inter:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --text: #000; --accent: #f8f8f8; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        
+        /* Mobile-First Navigation */
+        nav { 
+            display: flex; justify-content: space-between; padding: 20px 5%; 
+            position: sticky; top: 0; background: rgba(255,255,255,0.9); z-index: 1000;
+        }
+        .logo { font-family: 'Bodoni Moda', serif; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -1px; font-weight: bold; }
+        nav a { text-decoration: none; color: #000; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-left: 20px; }
+
+        /* Hero Section */
+        .hero { padding: 80px 5% 40px; text-align: center; }
+        .hero h1 { font-family: 'Bodoni Moda', serif; font-size: clamp(3rem, 10vw, 7rem); line-height: 0.9; margin: 0; font-weight: 400; }
+        .hero p { max-width: 500px; margin: 30px auto; font-size: 0.9rem; line-height: 1.8; color: #666; font-weight: 200; }
+        
+        .hero-img { width: 100%; height: 60vh; background: #eee; object-fit: cover; margin-top: 40px; }
+
+        /* Feature Section */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 5%; }
+        .grid-item { background: var(--accent); padding: 60px 40px; border: 1px solid #eee; transition: 0.3s; }
+        .grid-item:hover { background: #000; color: #fff; }
+        .grid-item h2 { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 2rem; margin-bottom: 15px; }
+
+        footer { padding: 60px 5%; text-align: center; border-top: 1px solid #eee; font-size: 0.6rem; letter-spacing: 3px; color: #aaa; }
+        
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero-img { height: 40vh; }
+        }
+		
+		.logo-img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 155px;
+        /* makes it look nicer */
+      }
+    </style>
+</head>
+<body>
+
+    <nav>
+        
+		<div style="letter-spacing: 5px;">LUNA'S</div>
+        <div>
+            <a href="./menu.html">Collection</a>
+            <a href="https://orderlunas.github.io/orderportal/">Shop</a>
+            <a href="https://instagram.com/thelunaslab" target="_blank">Instagram</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+<!--        <h1>Beyond Flavour</i></h1> -->
+		<img src="./lunaslogo.jpg" class="logo-img" alt="Luna's... Beyond Flavour">
+        <p>A private home studio dedicated to bring the magical world of Filipino cusine to you.</p>
+        <img src="./mangofloat.jpg" class="hero-img" alt="Mango Float">
+    </header>
+
+    <section class="grid">
+        <div class="grid-item">
+            <h2>The Craft</h2>
+            <p>Every piece is handcrafted in micro-batches, ensuring the highest fidelity of flavor and structure.</p>
+        </div>
+        <div class="grid-item">
+            <h2>The Studio</h2>
+            <p>Located in the heart of the city, our home-based kitchen is dedicated to crafting delightful homemade desserts and refreshing beverages made with love, freshness, and premium ingredients.</p>
+        </div>
+    </section>
+
+    <footer>&copy; 2026 LUNA'S — MADE WITH LOVE</footer>
+
+</body>
+</html>
