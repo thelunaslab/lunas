@@ -39,23 +39,23 @@
 </head>
 <body class="antialiased">
 
-    <nav class="fixed w-full z-50 flex justify-between items-center px-6 md:px-16 py-8">
+    <nav id="main-nav" class="fixed w-full z-50 flex justify-between items-center px-6 md:px-16 py-8 transition-colors duration-500 ease-in-out">
         <div class="flex flex-col">
-            <span class="text-mango serif text-2xl font-bold leading-none">Luna’s Lab</span>
-            <span class="text-[8px] tracking-[0.4em] uppercase opacity-60">Beyond Flavour</span>
+            <span class="nav-text serif text-2xl font-bold leading-none transition-colors duration-500">Luna’s</span>
+            <span class="nav-text text-[8px] tracking-[0.4em] uppercase opacity-60 transition-colors duration-500">Beyond Flavour</span>
         </div>
         <div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-widest font-bold opacity-80">
-            <a href="#shop" class="hover:text-mango transition">Shop</a>
-            <a href="#combos" class="hover:text-mango transition">Combos</a>
-            <a href="#story" class="hover:text-mango transition">Our Story</a>
-            <a href="#contact" class="hover:text-mango transition">Contact</a>
+            <a href="#shop" class="nav-link hover:text-mango transition-colors duration-500">Shop</a>
+            <a href="#combos" class="nav-link hover:text-mango transition-colors duration-500">Combos</a>
+            <a href="#story" class="nav-link hover:text-mango transition-colors duration-500">Our Story</a>
+            <a href="#contact" class="nav-link hover:text-mango transition-colors duration-500">Contact</a>
         </div>
-        <div>
+        <div class="nav-text transition-colors duration-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </div>
     </nav>
 
-    <section class="relative h-screen flex items-center bg-espresso overflow-hidden">
+    <section data-theme="dark" class="relative h-screen flex items-center bg-espresso overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://placehold.co/1920x1080/3E2723/FFF8E1?text=Cinematic+Hero+Video+or+Image" class="w-full h-full object-cover opacity-50" alt="Hero Background">
         </div>
@@ -78,7 +78,7 @@
         </div>
     </section>
 
-    <section id="shop" class="extreme-whitespace container mx-auto px-6 md:px-16">
+    <section data-theme="light" id="shop" class="extreme-whitespace container mx-auto px-6 md:px-16">
         <h2 class="serif text-5xl md:text-7xl mb-24 uppercase tracking-tighter">The Primary 5</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-12 gap-y-20 md:gap-x-12 items-start">
@@ -125,7 +125,7 @@
         </div>
     </section>
 
-    <section id="combos" class="bg-white/40 py-32 overflow-hidden">
+    <section data-theme="light" id="combos" class="bg-white/40 py-32 overflow-hidden">
         <div class="container mx-auto px-6 md:px-16">
             <h2 class="serif text-4xl md:text-5xl text-center mb-20 uppercase">Our Curated Pairs</h2>
             
@@ -179,5 +179,38 @@
         </div>
     </div>
 
+    <script>
+        const nav = document.querySelector('#main-nav');
+        const navElements = document.querySelectorAll('.nav-text, .nav-link');
+        const sections = document.querySelectorAll('section[data-theme]');
+    
+        const observerOptions = {
+            root: null,
+            threshold: 0.1, // Trigger when 10% of the section is visible
+            rootMargin: "-80px 0px 0px 0px" // Adjust for the height of your nav
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const theme = entry.target.getAttribute('data-theme');
+                    
+                    if (theme === 'dark') {
+                        // Switch to Light text for Dark backgrounds
+                        navElements.forEach(el => {
+                            el.style.color = '#FFF8E1'; // Cream Silk
+                        });
+                    } else {
+                        // Switch to Dark text for Light backgrounds
+                        navElements.forEach(el => {
+                            el.style.color = '#3E2723'; // Espresso Brown
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+    
+        sections.forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
