@@ -3,166 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna’s Lab | Beyond Flavour - Premium Filipino Desserts</title>
+    <title>Luna’s Lab | Beyond Flavour</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --mango-gold: #FFB800;
-            --espresso-brown: #3E2723;
-            --cream-silk: #FFF8E1;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cream-silk);
-            color: var(--espresso-brown);
-        }
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .btn-premium {
-            background-color: var(--mango-gold);
-            color: var(--espresso-brown);
-            transition: all 0.3s ease;
-        }
-        .btn-premium:hover {
-            filter: brightness(90%);
-            transform: translateY(-2px);
-        }
-        .extreme-whitespace {
-            padding-top: clamp(4rem, 10vw, 12rem);
-            padding-bottom: clamp(4rem, 10vw, 12rem);
-        }
+        :root { --mango: #FFB800; --espresso: #3E2723; --cream: #FFF8E1; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--cream); color: var(--espresso); }
+        .serif { font-family: 'Playfair Display', serif; }
+        .bg-mango { background-color: var(--mango); }
+        .text-espresso { color: var(--espresso); }
+        
+        /* Custom UI Elements */
+        .glass-nav { background: rgba(255, 248, 225, 0.8); backdrop-filter: blur(10px); }
+        .product-card img { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-card:hover img { transform: scale(1.05); }
+        
+        /* Extreme Whitespace Spacing */
+        .section-padding { padding-top: 8rem; padding-bottom: 8rem; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed w-full z-50 mix-blend-multiply py-6 px-8 flex justify-between items-center">
-        <div class="text-2xl font-bold tracking-tighter serif">Luna’s Lab</div>
-        <div class="hidden md:flex space-x-12 uppercase text-xs tracking-[0.2em] font-semibold">
-            <a href="#primary-5" class="hover:opacity-50">Shop</a>
-            <a href="#combos" class="hover:opacity-50">Combos</a>
-            <a href="#story" class="hover:opacity-50">Our Story</a>
-            <a href="https://thelunaslab.github.io/shop/" class="hover:opacity-50">Contact</a>
+    <nav class="fixed w-full z-50 glass-nav border-b border-black/5 py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex flex-col">
+            <span class="serif text-xl md:text-2xl font-bold tracking-tighter uppercase">Luna’s Lab</span>
+            <span class="text-[8px] tracking-[0.3em] uppercase opacity-60">Beyond Flavour</span>
         </div>
-        <a href="https://thelunaslab.github.io/shop/" class="relative">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.2em] font-semibold">
+            <a href="#hero" class="hover:text-amber-600 transition">Home</a>
+            <a href="#primary-5" class="hover:text-amber-600 transition">Shop</a>
+            <a href="#combos" class="hover:text-amber-600 transition">Combos</a>
+            <a href="https://thelunaslab.github.io/shop/" class="hover:text-amber-600 transition">Contact</a>
+        </div>
+        <a href="https://thelunaslab.github.io/shop/" class="p-2 bg-espresso text-cream rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </a>
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <div class="absolute inset-0 opacity-60">
-            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Mango Float Hero">
+    <section id="hero" class="relative h-screen flex items-center justify-center bg-[#1a1a1a] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Luna Hero">
+        <div class="relative z-10 text-center px-6">
+            <h1 class="serif text-white text-5xl md:text-8xl mb-8 leading-[1.1]">A Taste of the <br><span class="italic">Philippines.</span><br>Hand-Crafted in Pune.</h1>
+            <a href="https://thelunaslab.github.io/shop/" class="bg-mango text-espresso px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest hover:scale-105 transition shadow-xl">Order the Ritual</a>
         </div>
-        <div class="relative text-center px-4 max-w-4xl">
-            <h1 class="text-white text-5xl md:text-8xl mb-8 leading-tight italic">A Taste of the Philippines. <br>Hand-Crafted in Pune.</h1>
-            <a href="https://thelunaslab.github.io/shop/" class="btn-premium inline-block px-10 py-4 uppercase text-xs tracking-widest font-bold rounded-sm">Order the Ritual</a>
-        </div>
-        <div class="absolute bottom-10 left-10 text-white text-[10px] tracking-[0.4em] uppercase opacity-50 hidden md:block">
-            Summer Chill Pair — Signature Selection
-        </div>
-    </section>
-
-    <section id="primary-5" class="extreme-whitespace container mx-auto px-8">
-        <div class="mb-24">
-            <h2 class="text-4xl md:text-6xl uppercase tracking-tighter mb-4">The Primary 5</h2>
-            <div class="w-24 h-1 bg-[#3E2723]"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
-            <div class="md:col-span-7 group">
-                <div class="overflow-hidden bg-white mb-6 aspect-[4/5]">
-                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Signature Mango Float Grande">
-                </div>
-                <div class="flex justify-between items-end">
-                    <div>
-                        <p class="text-[10px] tracking-widest uppercase opacity-60 mb-2">01. 400ml Grande Tub</p>
-                        <h3 class="text-3xl mb-2">Signature Mango Float</h3>
-                        <p class="text-sm italic opacity-80 mb-6 max-w-xs">Ripe. Creamy. Pure Bliss. Layers of fresh mango and velvety silk cream.</p>
-                        <a href="https://thelunaslab.github.io/shop/" class="btn-premium px-6 py-3 text-[10px] uppercase font-bold tracking-widest">Add to Ritual</a>
-                    </div>
-                    <span class="text-2xl serif">₹450</span>
-                </div>
+        <div class="absolute bottom-12 right-12 hidden md:flex items-center space-x-4 text-white">
+            <div class="text-right">
+                <p class="text-[10px] uppercase tracking-widest opacity-60">Featured Set</p>
+                <p class="serif text-lg italic">Summer Chill Pair</p>
             </div>
-
-            <div class="md:col-span-5 md:mt-32 group">
-                <div class="overflow-hidden bg-white mb-6 aspect-square">
-                    <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Coffee Crumble Grande">
-                </div>
-                <div class="flex justify-between items-end">
-                    <div>
-                        <p class="text-[10px] tracking-widest uppercase opacity-60 mb-2">03. 400ml Grande Tub</p>
-                        <h3 class="text-2xl mb-2">Coffee Crumble</h3>
-                        <p class="text-sm italic opacity-80 mb-6">Bittersweet & Decadent. Oreo base meets cashew crunch.</p>
-                        <a href="https://thelunaslab.github.io/shop/" class="btn-premium px-6 py-3 text-[10px] uppercase font-bold tracking-widest">Add to Ritual</a>
-                    </div>
-                    <span class="text-xl serif">₹350</span>
-                </div>
-            </div>
-
-            <div class="md:col-span-4 group">
-                <div class="overflow-hidden bg-white mb-6 aspect-[3/4]">
-                    <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Signature Coffee Jelly">
-                </div>
-                <h3 class="text-2xl mb-2">Coffee Jelly (300ml)</h3>
-                <p class="text-[10px] tracking-widest uppercase mb-4">Shake. Sip. Enjoy.</p>
-                <a href="https://thelunaslab.github.io/shop/" class="border-b border-[#3E2723] pb-1 text-[10px] uppercase font-bold tracking-widest">Explore Item</a>
+            <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                <div class="w-1 h-1 bg-white rounded-full animate-ping"></div>
             </div>
         </div>
     </section>
 
-    <section id="combos" class="bg-[#3E2723] text-[#FFF8E1] extreme-whitespace">
-        <div class="container mx-auto px-8">
-            <h2 class="text-4xl md:text-6xl serif italic text-center mb-20">Our Curated Pairs</h2>
+    <section id="primary-5" class="section-padding container mx-auto px-6 md:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
+            <h2 class="serif text-5xl md:text-7xl uppercase leading-none">The Primary 5</h2>
+            <p class="max-w-xs text-xs uppercase tracking-widest opacity-50 leading-loose">Artisanal batches made with ripe mangoes and premium Filipino ingredients.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-24 md:gap-x-16">
+            <div class="md:col-span-8 product-card">
+                <div class="bg-white overflow-hidden aspect-[16/10] mb-8 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=1200" class="w-full h-full object-cover" alt="Mango Float">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="serif text-3xl mb-2">01. Signature Mango Float <span class="text-sm opacity-50 ml-2">(400ml)</span></h3>
+                        <p class="text-xs uppercase tracking-widest mb-6 italic opacity-70">Ripe. Creamy. Pure Bliss.</p>
+                        <a href="https://thelunaslab.github.io/shop/" class="bg-mango text-espresso px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest">Add to Ritual — ₹450</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 md:mt-40 product-card">
+                <div class="bg-white overflow-hidden aspect-square mb-8 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?q=80&w=800" class="w-full h-full object-cover" alt="Coffee Crumble">
+                </div>
+                <h3 class="serif text-2xl mb-2">03. Coffee Crumble <span class="text-xs opacity-50">(400ml)</span></h3>
+                <p class="text-xs italic opacity-70 mb-6">Bittersweet & Decadent.</p>
+                <a href="https://thelunaslab.github.io/shop/" class="border-b border-espresso pb-1 text-[10px] uppercase font-bold tracking-widest">Shop Grande — ₹350</a>
+            </div>
+
+            <div class="md:col-start-4 md:col-span-6 product-card">
+                <div class="bg-white overflow-hidden aspect-[3/4] mb-8 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?q=80&w=1000" class="w-full h-full object-cover" alt="Coffee Jelly">
+                </div>
+                <div class="text-center">
+                    <h3 class="serif text-3xl mb-2">05. Signature Coffee Jelly</h3>
+                    <p class="text-[10px] uppercase tracking-[0.4em] mb-6">Shake. Sip. Enjoy.</p>
+                    <a href="https://thelunaslab.github.io/shop/" class="bg-mango text-espresso px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest">Shop Now — ₹229</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="combos" class="section-padding bg-[#fcf6e8]">
+        <div class="container mx-auto px-6 md:px-12 text-center">
+            <h2 class="serif text-5xl md:text-7xl mb-20 italic">Our Curated Pairs</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="border border-[#FFF8E1]/20 p-10 flex flex-col items-center text-center">
-                    <div class="w-32 h-32 mb-8 bg-white/10 rounded-full flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 object-contain grayscale brightness-200" alt="Luna Duo">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-12 shadow-sm flex flex-col items-center">
+                    <div class="w-24 h-24 bg-cream rounded-full mb-8 flex items-center justify-center opacity-40">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3058/3058995.png" class="w-12 h-12 grayscale" alt="Icon">
                     </div>
-                    <h4 class="text-xl mb-2">The Luna’s Duo</h4>
-                    <p class="text-xs uppercase tracking-[0.2em] mb-6 opacity-60">Mango Mini + Coffee Mini</p>
-                    <p class="serif text-2xl mb-8">₹549</p>
-                    <a href="https://thelunaslab.github.io/shop/" class="w-full py-4 border border-[#FFF8E1] hover:bg-[#FFF8E1] hover:text-[#3E2723] transition duration-300 uppercase text-[10px] font-bold tracking-widest">Order Duo</a>
+                    <h4 class="serif text-2xl mb-2">The Luna’s Duo</h4>
+                    <p class="text-[10px] uppercase tracking-widest opacity-50 mb-8">Perfect for your first time</p>
+                    <p class="serif text-3xl mb-8">₹549</p>
+                    <a href="https://thelunaslab.github.io/shop/" class="w-full py-4 border border-espresso text-espresso uppercase text-[10px] font-bold tracking-widest hover:bg-espresso hover:text-cream transition">Add to Bag</a>
                 </div>
 
-                <div class="border border-[#FFF8E1]/20 p-10 flex flex-col items-center text-center">
-                    <div class="w-32 h-32 mb-8 bg-white/10 rounded-full flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 object-contain grayscale brightness-200" alt="Signature Pair">
+                <div class="bg-espresso text-cream p-12 shadow-xl flex flex-col items-center transform scale-105 z-10">
+                    <div class="w-24 h-24 bg-white/10 rounded-full mb-8 flex items-center justify-center">
+                         <img src="https://cdn-icons-png.flaticon.com/512/3058/3058995.png" class="w-12 h-12 invert" alt="Icon">
                     </div>
-                    <h4 class="text-xl mb-2">The Signature Pair</h4>
-                    <p class="text-xs uppercase tracking-[0.2em] mb-6 opacity-60">2x Grande Tubs (400ml)</p>
-                    <p class="serif text-2xl mb-8">₹799</p>
-                    <a href="https://thelunaslab.github.io/shop/" class="w-full py-4 border border-[#FFF8E1] hover:bg-[#FFF8E1] hover:text-[#3E2723] transition duration-300 uppercase text-[10px] font-bold tracking-widest">Order Pair</a>
+                    <h4 class="serif text-2xl mb-2">The Signature Pair</h4>
+                    <p class="text-[10px] uppercase tracking-widest opacity-50 mb-8 font-semibold">For the bigger cravings</p>
+                    <p class="serif text-3xl mb-8 text-mango">₹799</p>
+                    <a href="https://thelunaslab.github.io/shop/" class="w-full py-4 bg-mango text-espresso uppercase text-[10px] font-bold tracking-widest hover:brightness-90 transition">Add to Bag</a>
                 </div>
 
-                <div class="border border-[#FFF8E1]/20 p-10 flex flex-col items-center text-center">
-                    <div class="w-32 h-32 mb-8 bg-white/10 rounded-full flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 object-contain grayscale brightness-200" alt="Taste of Luna">
+                <div class="bg-white p-12 shadow-sm flex flex-col items-center">
+                    <div class="w-24 h-24 bg-cream rounded-full mb-8 flex items-center justify-center opacity-40">
+                         <img src="https://cdn-icons-png.flaticon.com/512/3058/3058995.png" class="w-12 h-12 grayscale" alt="Icon">
                     </div>
-                    <h4 class="text-xl mb-2">Taste of Luna’s</h4>
-                    <p class="text-xs uppercase tracking-[0.2em] mb-6 opacity-60">The Complete Experience</p>
-                    <p class="serif text-2xl mb-8">₹729</p>
-                    <a href="https://thelunaslab.github.io/shop/" class="w-full py-4 border border-[#FFF8E1] hover:bg-[#FFF8E1] hover:text-[#3E2723] transition duration-300 uppercase text-[10px] font-bold tracking-widest">Experience All</a>
+                    <h4 class="serif text-2xl mb-2">Taste of Luna’s</h4>
+                    <p class="text-[10px] uppercase tracking-widest opacity-50 mb-8">The Complete Experience</p>
+                    <p class="serif text-3xl mb-8">₹729</p>
+                    <a href="https://thelunaslab.github.io/shop/" class="w-full py-4 border border-espresso text-espresso uppercase text-[10px] font-bold tracking-widest hover:bg-espresso hover:text-cream transition">Add to Bag</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 bg-[#FFF8E1] border-t border-black/5 text-center">
-        <div class="mb-10 text-3xl serif">Luna’s Lab</div>
-        <div class="flex justify-center space-x-8 mb-10 text-[10px] uppercase tracking-widest font-bold">
-            <a href="https://www.instagram.com/thelunaslab" class="hover:opacity-50">Instagram</a>
-            <a href="https://thelunaslab.github.io/shop/" class="hover:opacity-50">WhatsApp Order</a>
-            <a href="https://thelunaslab.github.io/shop/" class="hover:opacity-50">Shop Home</a>
+    <footer class="section-padding bg-cream border-t border-black/5 text-center">
+        <div class="serif text-3xl mb-12 uppercase tracking-tighter">Luna’s Lab</div>
+        <div class="flex flex-wrap justify-center gap-8 text-[10px] uppercase tracking-[0.3em] font-bold mb-12">
+            <a href="#" class="hover:opacity-50">Instagram</a>
+            <a href="#" class="hover:opacity-50">Menu</a>
+            <a href="#" class="hover:opacity-50">Reviews</a>
+            <a href="#" class="hover:opacity-50">WhatsApp</a>
         </div>
-        <p class="text-[10px] opacity-40 uppercase tracking-[0.3em]">© 2024 Luna’s Lab | Beyond Flavour. Pune, India.</p>
+        <p class="text-[10px] opacity-30 uppercase tracking-[0.5em]">Made with Love in Pune. Beyond Flavour.</p>
     </footer>
 
-    <div class="fixed bottom-6 left-0 w-full px-6 md:hidden z-50">
-        <a href="https://thelunaslab.github.io/shop/" class="btn-premium block w-full py-4 rounded-full text-center font-bold uppercase text-xs tracking-widest shadow-2xl">
-            Open Digital Boutique
-        </a>
+    <div class="fixed bottom-0 left-0 w-full p-4 md:hidden z-[60] glass-nav border-t border-black/5">
+        <div class="flex gap-4">
+            <a href="https://thelunaslab.github.io/shop/" class="flex-1 bg-espresso text-white py-4 rounded-full text-center font-bold uppercase text-[10px] tracking-widest shadow-lg">
+                View Full Menu
+            </a>
+            <a href="https://wa.me/yournumber" class="w-14 h-14 bg-mango rounded-full flex items-center justify-center shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+        </div>
     </div>
 
 </body>
