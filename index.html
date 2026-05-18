@@ -2,56 +2,100 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="icon" type="image/png" href="./lunaslogo.jpg">
     <title>Luna’s | Beyond Flavour</title>
+
+    <!-- PRECONNECT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- TAILWIND -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
       :root {
-        --mango: #FFB800;		/* Mango Gold */
-        --espresso: #3E2723;	/* Espresso Brown */
-        --cream: #FFF8E1;		/* Cream Silk */
+        --mango: #FFB800;
+        --espresso: #3E2723;
+        --cream: #FFF8E1;
+        --footer: #1f140f;
+        --gold: #d4b06b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--cream);
-        color: var(--espresso);
         margin: 0;
-        scroll-behavior: smooth;
+        overflow-x: hidden;
+        font-family: 'Inter', sans-serif;
+        background: var(--cream);
+        color: var(--espresso);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        text-decoration: none;
       }
 
       .serif {
         font-family: 'Playfair Display', serif;
       }
 
-      /* THE EXACT COLOR TRANSITION FIX */
-      /* This makes the nav white on dark backgrounds and dark on light backgrounds automatically */
       nav {
         mix-blend-mode: difference;
-        color: white;
-        /* In 'difference' mode, white text on dark background stays light, on light it turns dark */
+        color: #fff;
+        /* backdrop-filter: blur(2px); */
       }
 
+      section {
+        padding: 120px 0;
+      }
+
+      /* BUTTON */
       .btn-ritual {
-        background-color: var(--mango);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--mango);
         color: var(--espresso);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
         padding: 12px 32px;
-        font-size: 11px;
         border-radius: 4px;
-        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        transition:
+          transform .25s ease,
+          opacity .25s ease;
+        will-change: transform;
       }
 
       .btn-ritual:hover {
         transform: scale(1.05);
-		cursor: pointer;
+        opacity: .95;
+        cursor: pointer;
       }
 
-      /* Precise Asymmetric Grid Logic */
+      /* GRID */
       .grid-container {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -60,12 +104,10 @@
 
       .mango-float-pos {
         grid-column: 1 / span 5;
-        margin-top: 0px;
       }
 
       .coffee-crumble-pos {
         grid-column: 7 / span 5;
-        margin-top: 0px;
       }
 
       .mango-float-mini-pos {
@@ -84,54 +126,42 @@
       }
 
       .image-box {
-        background: white;
+        background: #fff;
         padding: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
       }
 
-      section {
-        padding: 120px 0;
-      }
-
-      /* =========================
-   CAROUSEL
-=========================*/
+      /* CAROUSEL */
       .carousel-wrapper {
         position: relative;
-        overflow: visible;
       }
 
       .carousel {
         display: flex;
         gap: 30px;
-        transition: transform .5s ease;
+        transition: transform .45s ease;
+        will-change: transform;
       }
 
-      /* =========================
-   CARD (MATCH ASPECT)
-=========================*/
       .card {
         flex: 0 0 360px;
-        border-radius: 22px;
         padding: 18px;
         text-align: center;
-        //border: 1px solid #e6dfd2;
         border: 2px solid #ddd2bc;
         border-radius: 30px;
       }
 
       .card img {
         width: 100%;
-        aspect-ratio: 1.35/1;
-        /* EXACT VISUAL MATCH */
+        aspect-ratio: 1.35 / 1;
         object-fit: cover;
         border-radius: 18px;
       }
 
       .card h3 {
         margin: 16px 0 5px;
-        font-weight: 500;
         font-size: 20px;
+        font-weight: 500;
       }
 
       .subtitle {
@@ -145,23 +175,22 @@
         font-weight: 600;
       }
 
-      /* =========================
-   ARROWS
-=========================*/
+      /* ARROWS */
       .arrow {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        z-index: 20;
         width: 42px;
         height: 42px;
-        border-radius: 50%;
         border: 1px solid #ddd;
-        background: white;
-        cursor: pointer;
-        font-size: 20px;
-        z-index: 200;
+        border-radius: 50%;
+        background: #fff;
         box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
-        transition: .25s;
+        font-size: 20px;
+        transform: translateY(-50%);
+        transition:
+          transform .25s ease,
+          background .25s ease;
       }
 
       .arrow:hover {
@@ -177,23 +206,23 @@
         right: -60px;
       }
 
-      /* =========================
-   DOTS
-=========================*/
+      /* DOTS */
       .dots {
-        text-align: center;
         margin-top: 25px;
+        text-align: center;
       }
 
       .dot {
+        display: inline-block;
         width: 8px;
         height: 8px;
-        background: #d5d0c7;
-        border-radius: 50%;
-        display: inline-block;
         margin: 6px;
+        border-radius: 50%;
+        background: #d5d0c7;
         cursor: pointer;
-        transition: .3s;
+        transition:
+          transform .25s ease,
+          background .25s ease;
       }
 
       .dot.active {
@@ -201,16 +230,205 @@
         transform: scale(1.3);
       }
 
-      /* =========================
-   MOBILE
-=========================*/
-      @media(max-width:768px) {
-        .title {
-          font-size: 30px;
+      /* FOOTER */
+      .footer-section {
+        position: relative;
+        overflow: hidden;
+        background: var(--footer);
+        color: #f7f0e4;
+        padding: 120px 80px 40px;
+      }
+
+      .footer-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at top right,
+            rgba(255, 184, 0, .08),
+            transparent 35%);
+        pointer-events: none;
+      }
+
+.footer-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns:
+    1.2fr
+    0.7fr
+    0.9fr
+    1fr;
+
+  gap: 48px;
+  align-items: start;
+}
+
+      .footer-brand h2 {
+        margin: 0 0 5px;
+        font-size: 58px;
+        font-weight: 400;
+        letter-spacing: -0.04em;
+      }
+
+      .footer-brand p {
+        margin-bottom: 30px;
+        color: var(--gold);
+        font-size: 11px;
+        letter-spacing: .35em;
+        text-transform: uppercase;
+      }
+
+      .footer-tagline {
+        display: block;
+        max-width: 340px;
+        color: rgba(255, 255, 255, .68);
+        line-height: 1.8;
+        font-size: 14px;
+      }
+
+      .footer-links,
+      .footer-cta {
+        display: flex;
+        flex-direction: column;
+		align-items: flex-start;
+      }
+
+      .footer-links h4,
+      .footer-cta h4 {
+        margin-bottom: 26px;
+        color: var(--gold);
+        font-size: 12px;
+        letter-spacing: .25em;
+        text-transform: uppercase;
+      }
+
+      .footer-links {
+        gap: 16px;
+      }
+
+      .footer-links a,
+      .footer-links span {
+        color: rgba(255, 255, 255, .72);
+        font-size: 15px;
+        transition:
+          color .25s ease,
+          transform .25s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--mango);
+        transform: translateX(3px);
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .footer-socials a {
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(255, 184, 0, .55);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mango);
+        transition:
+          transform .25s ease,
+          background .25s ease,
+          color .25s ease;
+      }
+
+      .footer-socials a:hover {
+        background: var(--mango);
+        color: var(--footer);
+        transform: translateY(-3px);
+      }
+
+      .visit-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(255, 255, 255, .75);
+        font-size: 15px;
+      }
+
+      .visit-item i {
+        width: 18px;
+        color: var(--mango);
+        font-size: 15px;
+      }
+
+      .footer-bottom {
+        position: relative;
+        z-index: 2;
+        margin-top: 90px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, .08);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgba(255, 255, 255, .42);
+        font-size: 12px;
+        letter-spacing: .08em;
+      }
+
+      /* MOBILE */
+      @media (max-width: 900px) {
+        .footer-section {
+          padding: 90px 28px 30px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 50px;
+        }
+
+        .footer-brand h2 {
+          font-size: 44px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          margin-top: 60px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 90px 0;
+        }
+
+        .grid-container {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+
+        .mango-float-pos,
+        .coffee-crumble-pos,
+        .mango-float-mini-pos,
+        .coffee-crumble-mini-pos,
+        .coffee-jelly-pos {
+          grid-column: auto;
+          margin-top: 0;
         }
 
         .card {
           flex: 0 0 280px;
+        }
+
+        .left {
+          left: -12px;
+        }
+
+        .right {
+          right: -12px;
         }
       }
     </style>
@@ -218,207 +436,373 @@
 
   <body>
 
+    <!-- NAV -->
+
     <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-10 py-10">
+
       <div class="flex flex-col">
         <p class="text-2xl font-bold uppercase tracking-tighter" style="letter-spacing: 5px;">Luna’<span style="font-size: 75%;">s</span></p>
         <span class="text-[9px] tracking-[0.4em] uppercase opacity-80">Beyond Flavour</span>
       </div>
+
       <div class="hidden md:flex space-x-12 text-[12px] uppercase tracking-[0.2em] font-bold">
-        <a href="#collection" class="nav-item hover:opacity-50">Collection</a>
-        <a href="#combos" class="nav-item hover:opacity-50">Combos</a>
-        <a href="#story" class="nav-item hover:opacity-50">Our Story</a>
-        <a href="#contact" class="nav-item hover:opacity-50">Contact</a>
-        <a href="https://thelunaslab.github.io/shop" class="nav-item hover:opacity-50">Order</a>
+        <a href="#collection" class="hover:opacity-50">Collection</a>
+        <a href="#combos" class="hover:opacity-50">Combos</a>
+        <a href="#story" class="hover:opacity-50">Our Story</a>
+        <a href="#contact" class="hover:opacity-50">Contact</a>
+        <a href="https://thelunaslab.github.io/shop" class="hover:opacity-50">Order</a>
       </div>
-      <!--
-        <div>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        </div>
--->
+
     </nav>
 
+    <!-- HERO -->
+
     <section class="h-screen flex items-center bg-black relative overflow-hidden" style="padding:0;">
-      <img src="./images/hero.png" class="absolute inset-0 w-full h-full object-cover opacity-60">
+
+      <img src="./images/hero.png" alt="Luna's Hero" class="absolute inset-0 w-full h-full object-cover opacity-60">
+
       <div class="relative px-10 md:px-20 z-10">
+
         <h1 class="text-white text-6xl md:text-8xl leading-[1.1] mb-12">
-          A Taste of the <br>Philippines. <br>Hand-Crafted <br>in Pune.
+          A Taste of the <br>
+          Philippines. <br>
+          Hand-Crafted <br>
+          in Pune.
         </h1>
+
         <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
       </div>
-      <!--
-        <div class="absolute bottom-12 left-10 md:left-20 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-sm flex items-center gap-4 text-white">
-            <span class="text-[9px] uppercase tracking-[0.3em] font-bold">Summer Chill Pair</span>
-            <div class="flex -space-x-2">
-                <div class="w-6 h-6 rounded-full border-2 border-white bg-[#FFB800]"></div>
-                <div class="w-6 h-6 rounded-full border-2 border-white bg-[#3E2723]"></div>
-            </div>
-        </div>
--->
+
     </section>
 
+    <!-- COLLECTION -->
+
     <section id="collection" class="container mx-auto px-10">
-      <h2 class="text-5xl md:text-7xl mb-32 uppercase tracking-tighter">Our Collection</h2>
+
+      <h2 class="text-5xl md:text-7xl mb-32 uppercase tracking-tighter">
+        Our Collection
+      </h2>
 
       <div class="grid-container">
+
         <div class="mango-float-pos">
           <div class="image-box mb-8">
-            <img src="./images/product_1.png" class="w-full h-auto">
+            <img src="./images/product_1.png" alt="Mango Float Grande">
           </div>
+
           <h3 class="text-2xl mb-4">Mango Float Grande [400ml]</h3>
-          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">Ripe, Creamy, Pure Bliss. Layers of mango, cream, and summer in every spoon.</p>
-          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">
+            Ripe, Creamy, Pure Bliss. Layers of mango, cream, and summer in every spoon.
+          </p>
+
+          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+            Order Now
+          </a>
         </div>
 
         <div class="coffee-crumble-pos">
           <div class="image-box mb-8">
-            <img src="./images/product_1.png" class="w-full h-auto">
+            <img src="./images/product_1.png" alt="Coffee Crumble Grande">
           </div>
+
           <h3 class="text-2xl mb-4">Coffee Crumble Grande [400ml]</h3>
-          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">Bittersweet. Decadent. A taste of the Philippines you'll fall in love with.</p>
-          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">
+            Bittersweet. Decadent. A taste of the Philippines you'll fall in love with.
+          </p>
+
+          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+            Order Now
+          </a>
         </div>
 
         <div class="mango-float-mini-pos">
           <div class="image-box mb-8">
-            <img src="./images/product_1.png" class="w-full h-auto">
+            <img src="./images/product_1.png" alt="Mango Float Mini">
           </div>
+
           <h3 class="text-2xl mb-4">Mango Float Mini [250ml]</h3>
-          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">Ripe, Creamy, Pure Bliss. Layers of mango, cream, and summer in every spoon.</p>
-          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">
+            Ripe, Creamy, Pure Bliss. Layers of mango, cream, and summer in every spoon.
+          </p>
+
+          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+            Order Now
+          </a>
         </div>
 
         <div class="coffee-crumble-mini-pos">
           <div class="image-box mb-8">
-            <img src="./images/product_1.png" class="w-full h-auto">
+            <img src="./images/product_1.png" alt="Coffee Crumble Mini">
           </div>
+
           <h3 class="text-2xl mb-4">Coffee Crumble Mini [250ml]</h3>
-          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">Bittersweet. Decadent. A taste of the Philippines you'll fall in love with.</p>
-          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">
+            Bittersweet. Decadent. A taste of the Philippines you'll fall in love with.
+          </p>
+
+          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+            Order Now
+          </a>
         </div>
 
         <div class="coffee-jelly-pos">
           <div class="image-box mb-8">
-            <img src="./images/product_3.png" class="w-full h-auto">
+            <img src="./images/product_3.png" alt="Coffee Jelly">
           </div>
+
           <h3 class="text-2xl mb-4">Coffee Jelly [300ml]</h3>
-          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">Shake. Sip. Enjoy.</p>
-          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+          <p class="text-[10px] uppercase tracking-widest opacity-60 mb-6">
+            Shake. Sip. Enjoy.
+          </p>
+
+          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+            Order Now
+          </a>
         </div>
+
       </div>
+
     </section>
 
-    <section id="combos" class="bg-[#FFF8E1] py-32">
+    <!-- COMBOS -->
+	
+    <section id="combos" class="container mx-auto px-10 py-28">
+
+      <h2 class="text-5xl md:text-7xl mb-32 uppercase tracking-tighter">
+        Our Curated Pairs
+      </h2>
+
+<!--    <section id="combos" class="bg-[#FFF8E1] px-10"> -->
+
       <div class="container mx-auto px-10 text-center">
-        <h2 class="text-5xl md:text-7xl mb-24 uppercase">Our Curated Pairs</h2>
-        <!-- CAROUSEL -->
+<!--
+        <h2 class="text-5xl md:text-7xl mb-24 uppercase">
+          Our Curated Pairs
+        </h2>
+-->
         <div class="carousel-wrapper">
 
-          <button class="arrow left" onclick="moveSlide(-1)">❮</button>
+          <button class="arrow left" id="prevBtn">❮</button>
 
           <div class="carousel" id="carousel">
 
             <div class="card">
-              <img src="./images/combo_1.png">
+              <img src="./images/combo_1.png" alt="Combo 1">
+
               <h3>Combo 1 - The Luna's Duo</h3>
+
               <div class="subtitle">Perfect for your first time</div>
+
               <div class="price">Special ₹549</div><br>
-              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+                Order Now
+              </a>
             </div>
 
             <div class="card">
-              <img src="./images/combo_2.png">
+              <img src="./images/combo_2.png" alt="Combo 2">
+
               <h3>Combo 2 - Signature Pair</h3>
+
               <div class="subtitle">Our signature bestsellers</div>
+
               <div class="price">Special ₹799</div><br>
-              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+                Order Now
+              </a>
             </div>
 
             <div class="card">
-              <img src="./images/combo_3.png">
+              <img src="./images/combo_3.png" alt="Combo 3">
+
               <h3>Combo 3 - Summer Chill Pair</h3>
+
               <div class="subtitle">Refreshing and indulgent</div>
+
               <div class="price">Special ₹499</div><br>
-              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+                Order Now
+              </a>
             </div>
 
             <div class="card">
-              <img src="./images/combo_4.png">
+              <img src="./images/combo_4.png" alt="Combo 4">
+
               <h3>Combo 4 - Coffee Lovers Pair</h3>
+
               <div class="subtitle">Perfect for coffe lovers</div>
+
               <div class="price">Special ₹449</div><br>
-              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+                Order Now
+              </a>
             </div>
 
             <div class="card">
-              <img src="./images/combo_5.png">
+              <img src="./images/combo_5.png" alt="Combo 5">
+
               <h3>Combo 5 - Taste of Luna's</h3>
+
               <div class="subtitle">Try everything at once</div>
+
               <div class="price">Special ₹729</div><br>
-              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">Order Now</a>
+
+              <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+                Order Now
+              </a>
             </div>
 
           </div>
 
-          <button class="arrow right" onclick="moveSlide(1)">❯</button>
+          <button class="arrow right" id="nextBtn">❯</button>
 
         </div>
 
-        <!-- DOTS -->
         <div class="dots" id="dots"></div>
+
       </div>
+
     </section>
-    <!--
-    <div class="md:hidden fixed bottom-6 left-6 right-6 z-[60] bg-white p-6 rounded-3xl shadow-2xl">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-16 h-16 bg-[#FFB800] rounded-xl"></div>
-        <div>
-          <p class="text-[10px] font-bold uppercase tracking-tight">Mini Mango Float (250ml)</p>
-          <p class="text-[9px] text-green-600 font-bold">Added to Ritual</p>
+
+    <!-- FOOTER -->
+
+    <footer class="footer-section">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <h2 class="uppercase" style="letter-spacing:5px;">Luna’<span style="font-size:75%;">s</span></h2>
+          <p>Beyond Flavour</p>
+
+          <span class="footer-tagline">Hand-crafted Filipino desserts and drinks, made fresh in Pune.</span>
+
+          <div class="footer-socials">
+
+            <a href="https://www.instagram.com/thelunaslab" target="_blank" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/thelunaslab" target="_blank" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://wa.me/919604320903?text=Hi!" target="_blank" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+          </div>
+
         </div>
+
+        <div class="footer-links">
+
+          <h4>Explore</h4>
+
+          <a href="#collection">Collection</a>
+          <a href="#combos">Curated Pairs</a>
+          <a href="#story">Our Story</a>
+          <a href="#contact">Contact</a>
+
+        </div>
+
+        <div class="footer-links">
+
+          <h4>Serving</h4>
+
+          <div class="visit-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Pune, Maharashtra<br>(limited locations)</span>
+          </div>
+
+          <div class="visit-item">
+            <i class="fa-regular fa-clock"></i>
+            <span>Open Daily</span>
+          </div>
+
+          <div class="visit-item">
+            <i class="fa-regular fa-clock"></i>
+            <span>11 AM — 11 PM</span>
+          </div>
+
+        </div>
+
+        <div class="footer-cta">
+
+          <h4>Start Your Ritual</h4>
+
+          <a href="https://thelunaslab.github.io/shop" class="btn-ritual">
+            Order Now
+          </a>
+
+        </div>
+
       </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-[#635BFF] text-white py-4 rounded-xl text-center text-[10px] font-bold uppercase tracking-widest">Shop Pay</div>
-        <div class="bg-[#25D366] text-white py-4 rounded-xl text-center text-[10px] font-bold uppercase tracking-widest">WhatsApp</div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Luna’s Lab</span>
+        <span>Crafted with warmth & love.</span>
       </div>
-    </div>
-	-->
+
+    </footer>
+
+    <!-- SCRIPT -->
+
     <script>
-      const carousel = document.getElementById("carousel");
-      const cards = document.querySelectorAll(".card");
-      const dotsContainer = document.getElementById("dots");
-      let index = 0;
-      const visibleCards = 3;
+      const carousel = document.getElementById('carousel');
+      const cards = document.querySelectorAll('.card');
+      const dotsContainer = document.getElementById('dots');
+      const visibleCards = window.innerWidth <= 768 ? 1 : 3;
       const maxIndex = cards.length - visibleCards;
-      /* CREATE DOTS */
+      let index = 0;
       for (let i = 0; i <= maxIndex; i++) {
-        let dot = document.createElement("span");
-        dot.className = "dot";
-        dot.onclick = () => goTo(i);
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.addEventListener('click', () => goTo(i));
         dotsContainer.appendChild(dot);
       }
 
-      function update() {
+      function updateCarousel() {
+        const cardWidth = cards[0].offsetWidth + 30;
         carousel.style.transform =
-          `translateX(-${index*(cards[0].offsetWidth+30)}px)`;
-        document.querySelectorAll(".dot")
-          .forEach((d, i) => {
-            d.classList.toggle("active", i === index);
+          `translateX(-${index * cardWidth}px)`;
+        document.querySelectorAll('.dot')
+          .forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
           });
       }
 
-      function moveSlide(dir) {
-        index += dir;
+      function moveSlide(direction) {
+        index += direction;
         if (index < 0) index = 0;
         if (index > maxIndex) index = maxIndex;
-        update();
+        updateCarousel();
       }
 
       function goTo(i) {
         index = i;
-        update();
+        updateCarousel();
       }
-      update();
+      document
+        .getElementById('prevBtn')
+        .addEventListener('click', () => moveSlide(-1));
+      document
+        .getElementById('nextBtn')
+        .addEventListener('click', () => moveSlide(1));
+      window.addEventListener('resize', updateCarousel);
+      updateCarousel();
     </script>
+
   </body>
 
 </html>
